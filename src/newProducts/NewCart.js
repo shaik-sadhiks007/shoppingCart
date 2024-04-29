@@ -1,7 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import {Link } from "react-router-dom";
 import NewEachCart from "./NewEachCart";
-import useProductManage from "./useProductManage";
 import { productsContext } from "../services/productsContext";
 
 function NewCart() {

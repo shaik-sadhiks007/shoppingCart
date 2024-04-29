@@ -1,4 +1,4 @@
-import { Link, useParams, useLocation, useNavigate } from "react-router-dom";
+import { Link, useParams,useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { productsContext } from "../services/productsContext";
 
@@ -18,7 +18,7 @@ function NewProductDetail() {
     useEffect(() => {
 
         gettingData();
-        setIsCart(cart.some(prod => prod.id == id));
+        setIsCart(cart.some(prod => prod.id === id));
 
     }, [cart, id]);
 

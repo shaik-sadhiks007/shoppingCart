@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import useProductManage from "./useProductManage";
 import { useContext } from "react";
 import { productsContext } from "../services/productsContext";
 
