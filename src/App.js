@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import NewProducts from "./newProducts/NewProducts";
+import NewCart from "./newProducts/NewCart";
+import NewProductDetail from "./newProducts/NewProductDetail";
+import { productsContext } from "./services/productsContext";
+import useProductManage from "./newProducts/useProductManage";
 
 function App() {
+
+  const { cart, setCart, addToCart, removeFromCart, quantChangeMinus, quantChangePlus,data,checkoutprice,setCheckOutPrice } = useProductManage()
+  const contextValue = {
+    data,
+    cart,
+    setCart,
+    addToCart,
+    removeFromCart,
+    quantChangeMinus,
+    quantChangePlus,
+    checkoutprice,
+    setCheckOutPrice
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    <productsContext.Provider value={contextValue}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<NewProducts />} />
+          <Route path="/NewCart" element={<NewCart />} />
+          <Route path="/NewProductDetail/:productName/:id" element={<NewProductDetail />} />
+        </Routes>
+      </BrowserRouter>
+    </productsContext.Provider>
+
+  )
 }
 
 export default App;
