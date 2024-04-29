@@ -38,7 +38,7 @@ function useProductManage() {
     
         product = { ...product, count: 1 };
 
-        let existingCartItem = cart.some(prod => prod.id == product.id);
+        let existingCartItem = cart.some(prod => prod.id === product.id);
 
         if (!existingCartItem) {
             setCart([...cart, product]);
